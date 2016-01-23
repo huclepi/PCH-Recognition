@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" tag-format="semantics-ms/1.0"
+root="jacky" xmlns="http://www.w3.org/2001/06/grammar">
+  <rule id="jacky" scope="public">
+    <ruleref special="GARBAGE" />
+    <one-of>
+      <item>
+        <one-of>
+          <item>Bonjour</item>
+          <item>Bonsoir</item>
+          <item>Salut</item>
+        </one-of>
+        <ruleref uri="#data_type" />
+        <tag>$.data_type=$data_type; $.jacky={}; $.jacky._value="Wakeup";</tag>
+      </item>
+    </one-of>
+    <ruleref special="GARBAGE" />
+  </rule>
+  <rule id="data_type" scope="public">
+    <one-of>
+      <item></item>
+      <item>Jarvis</item>
+    </one-of>
+  </rule>
+</grammar>

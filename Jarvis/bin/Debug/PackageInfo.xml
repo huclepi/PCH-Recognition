@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Package xmlns="urn:Constellation.Deployment"
+         Name="Jarvis"
+         Version="3.0"
+         Author="Pierre Defache"
+         URL="http://www.mywebsite.com"
+         Description="Jarvis Copyright ©  2016"
+         EnableControlHub="true">
+  <Compatibility constellationVersion="1.7" dotNetTargetPlatform="net45" />
+  <Settings>
+	<!-- My package settings --> 
+  </Settings>
+</Package>

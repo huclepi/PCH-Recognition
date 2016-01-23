@@ -1,0 +1,16 @@
+C:\Users\Pierre Defache\Documents\C#\Constellation\Jarvis\Jarvis\obj\Debug\Jarvis.csprojResolveAssemblyReference.cache
+C:\Users\Pierre Defache\Documents\C#\Constellation\Jarvis\Jarvis\obj\Debug\Jarvis.Properties.Resources.resources
+C:\Users\Pierre Defache\Documents\C#\Constellation\Jarvis\Jarvis\obj\Debug\Jarvis.csproj.GenerateResource.Cache
+C:\Users\Pierre Defache\Documents\C#\Constellation\Jarvis\Jarvis\bin\Debug\PackageInfo.xml
+C:\Users\Pierre Defache\Documents\C#\Constellation\Jarvis\Jarvis\bin\Debug\Jarvis.exe
+C:\Users\Pierre Defache\Documents\C#\Constellation\Jarvis\Jarvis\bin\Debug\Jarvis.pdb
+C:\Users\Pierre Defache\Documents\C#\Constellation\Jarvis\Jarvis\bin\Debug\Constellation.Common.dll
+C:\Users\Pierre Defache\Documents\C#\Constellation\Jarvis\Jarvis\bin\Debug\Microsoft.AspNet.SignalR.Client.dll
+C:\Users\Pierre Defache\Documents\C#\Constellation\Jarvis\Jarvis\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Pierre Defache\Documents\C#\Constellation\Jarvis\Jarvis\bin\Debug\Constellation.Common.pdb
+C:\Users\Pierre Defache\Documents\C#\Constellation\Jarvis\Jarvis\bin\Debug\Constellation.Common.xml
+C:\Users\Pierre Defache\Documents\C#\Constellation\Jarvis\Jarvis\bin\Debug\Microsoft.AspNet.SignalR.Client.xml
+C:\Users\Pierre Defache\Documents\C#\Constellation\Jarvis\Jarvis\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Pierre Defache\Documents\C#\Constellation\Jarvis\Jarvis\obj\Debug\Jarvis.exe
+C:\Users\Pierre Defache\Documents\C#\Constellation\Jarvis\Jarvis\obj\Debug\Jarvis.pdb
+C:\Users\Pierre Defache\Documents\C#\Constellation\Jarvis\Jarvis\bin\Debug\Jarvis.exe.config
