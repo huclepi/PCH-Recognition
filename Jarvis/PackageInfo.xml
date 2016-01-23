@@ -2,12 +2,13 @@
 <Package xmlns="urn:Constellation.Deployment"
          Name="Jarvis"
          Version="3.0"
-         Author="Pierre Defache"
+         Author="Huclepi"
          URL="http://www.mywebsite.com"
          Description="Jarvis Copyright ©  2016"
          EnableControlHub="true">
   <Compatibility constellationVersion="1.7" dotNetTargetPlatform="net45" />
   <Settings>
-	<!-- My package settings --> 
+    <Setting name="User" type="string"/>
+    <Setting name="Grammar" type="string"/>
   </Settings>
 </Package>

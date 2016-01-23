@@ -14,3 +14,6 @@ C:\Users\Pierre Defache\Documents\C#\Constellation\Jarvis\Jarvis\bin\Debug\Newto
 C:\Users\Pierre Defache\Documents\C#\Constellation\Jarvis\Jarvis\obj\Debug\Jarvis.exe
 C:\Users\Pierre Defache\Documents\C#\Constellation\Jarvis\Jarvis\obj\Debug\Jarvis.pdb
 C:\Users\Pierre Defache\Documents\C#\Constellation\Jarvis\Jarvis\bin\Debug\Jarvis.exe.config
+C:\Users\Pierre Defache\Documents\C#\PCH-Recognition\Jarvis\bin\Debug\Jarvis.exe.config
+C:\Users\Pierre Defache\Documents\C#\PCH-Recognition\Jarvis\obj\Debug\Jarvis.exe
+C:\Users\Pierre Defache\Documents\C#\PCH-Recognition\Jarvis\obj\Debug\Jarvis.pdb
