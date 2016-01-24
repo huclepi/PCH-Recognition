@@ -32,7 +32,7 @@ namespace Jarvis.Model
         public override void SpeechRejected(object sender, SpeechRecognitionRejectedEventArgs e)
         {
             PackageHost.WriteInfo("Relancement de Jarvis.");
-            Restart();
+            EarManager.RestartJarvisEar();
         }
 
         public override Grammar GetGrammar()
@@ -51,7 +51,7 @@ namespace Jarvis.Model
             if (e.Result.Semantics["data_type"].Value.ToString().Equals("Jarvis") || e.Result.Semantics["data_type"].Value.ToString().Equals("a dit"))
             {
                 PackageHost.WriteInfo("[{0}]: Oui ?", e.Result.Semantics["data_type"].Value.ToString());
-                EarManager.StartQuestionEar();
+                EarManager.StartRequestEar();
             }
             else
             {

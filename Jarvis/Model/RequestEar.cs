@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace Jarvis.Model
 {
-    public class QuestionEar : Ear
+    public class RequestEar : Ear
     {
 
-        public QuestionEar(EarManager earManager)
+        public RequestEar(EarManager earManager)
             : base(earManager)
         {
         }
@@ -31,7 +31,7 @@ namespace Jarvis.Model
         /// </summary>
         public override void SpeechRejected(object sender, SpeechRecognitionRejectedEventArgs e)
         {
-            PackageHost.WriteInfo("Jarvis n'a pas reconnue votre demande.");
+            PackageHost.WriteInfo("Jarvis n'a pas reconnu votre demande.");
             Restart();
         }
 

@@ -11,7 +11,12 @@ namespace Jarvis.Model
 {
     public abstract class Ear
     {
-        bool isStarted = false;
+        private bool isRunning = false;
+
+        public bool IsRunning
+        {
+            get { return isRunning; }
+        }
 
         private SpeechRecognitionEngine RecognitionEngine { get; set; }
         public EarManager EarManager { get; set; }
@@ -46,22 +51,25 @@ namespace Jarvis.Model
 
         public void Stop()
         {
-            RecognitionEngine.RecognizeAsyncStop();
-            isStarted = false;
+            if (isRunning)
+            {
+                RecognitionEngine.RecognizeAsyncStop();
+                isRunning = false;
+            }
         }
 
         public void Start()
         {
-            if (!isStarted)
+            if (!isRunning)
             {
                 try
                 {
                     RecognitionEngine.RecognizeAsync(RecognizeMode.Single);
-                    isStarted = true;
+                    isRunning = true;
                 }
                 catch
                 {
-                    isStarted = false;
+                    isRunning = false;
                 }
             }
 

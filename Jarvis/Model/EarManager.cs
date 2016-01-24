@@ -9,41 +9,31 @@ namespace Jarvis.Model
     public class EarManager
     {
         public JarvisEar Jarvis { get; set; }
-        public QuestionEar Question { get; set; }
+        public RequestEar Request { get; set; }
 
         public EarManager()
         {
             Jarvis = new JarvisEar(this);
-            Question = new QuestionEar(this);
+            Request = new RequestEar(this);
             StartJarvisEar();
         }
 
         public void StartJarvisEar()
         {
-            StopQuestionEar();
+            Request.Stop();
             Jarvis.Start();
         }
 
         public void RestartJarvisEar()
         {
-            StopQuestionEar();
+            Request.Stop();
             Jarvis.Restart();
         }
 
-        public void StartQuestionEar()
-        {
-            StopJarvisEar();
-            Question.Start();
-        }
-
-        private void StopJarvisEar()
+        public void StartRequestEar()
         {
             Jarvis.Stop();
-        }
-
-        private void StopQuestionEar()
-        {
-            Question.Stop();
+            Request.Start();
         }
     }
 }
