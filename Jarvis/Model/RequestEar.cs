@@ -33,6 +33,7 @@ namespace Jarvis.Model
         {
             this.EarManager.StopRequestEar();
             PackageHost.WriteInfo("Jarvis n'a pas reconnu votre demande.");
+            Voice.Speak("Je n'ai pas compris.",false);
             this.EarManager.StartJarvisEar();
         }
 
