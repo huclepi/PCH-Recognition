@@ -31,10 +31,9 @@ namespace Jarvis.Model
         /// </summary>
         public override void SpeechRejected(object sender, SpeechRecognitionRejectedEventArgs e)
         {
-            //this.EarManager.StopRequestEar();
-            //Voice.Speak("Pouvez-vous répéter ?");
+            this.EarManager.StopRequestEar();
             PackageHost.WriteInfo("Jarvis n'a pas reconnu votre demande.");
-            //this.EarManager.StartRequestEar();
+            this.EarManager.StartJarvisEar();
         }
 
         public override Grammar GetGrammar()
