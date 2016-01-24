@@ -57,7 +57,7 @@ namespace Jarvis.Model
             }
             else
             {
-                Voice.Speak("Bonjour qui ?");
+                PackageHost.WriteInfo("[Jarvis] Bonjour qui ?");
                 EarManager.StartJarvisEar();
             }
         }
