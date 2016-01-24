@@ -33,6 +33,19 @@ namespace Jarvis
             manager = new EarManager();
         }
 
+        [MessageCallback]
+        public void Speak(string text)
+        {
+            manager.Pause();
+            Voice.Speak(text, true, false);
+            manager.Resume();
+        }
+
+        /*[MessageCallback]
+        public void Speak(string text, bool writeOnConsole = true, bool notify = false)
+        {
+            Voice.Speak(text, writeOnConsole, notify);
+        }*/
 
     }
 }

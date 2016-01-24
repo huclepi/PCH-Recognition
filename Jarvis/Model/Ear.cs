@@ -64,7 +64,7 @@ namespace Jarvis.Model
             {
                 try
                 {
-                    RecognitionEngine.RecognizeAsync(RecognizeMode.Single);
+                    RecognitionEngine.RecognizeAsync(RecognizeMode.Multiple);
                     isRunning = true;
                 }
                 catch

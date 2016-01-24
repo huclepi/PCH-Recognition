@@ -11,6 +11,9 @@ namespace Jarvis.Model
         public JarvisEar Jarvis { get; set; }
         public RequestEar Request { get; set; }
 
+        bool jarvisRunning = false;
+        bool requestRunning = false;
+
         public EarManager()
         {
             Jarvis = new JarvisEar(this);
@@ -34,6 +37,43 @@ namespace Jarvis.Model
         {
             Jarvis.Stop();
             Request.Start();
+        }
+
+        public void StopJarvisEar()
+        {
+            Jarvis.Stop();
+        }
+
+        public void StopRequestEar()
+        {
+            Request.Stop();
+        }
+
+        internal void Pause()
+        {
+            jarvisRunning = Jarvis.IsRunning;
+            requestRunning = Request.IsRunning;
+            if (jarvisRunning)
+            {
+                Jarvis.Stop();
+            }
+            if (requestRunning)
+            {
+                Request.Stop();
+            }
+            
+        }
+
+        internal void Resume()
+        {
+            if (jarvisRunning)
+            {
+                Jarvis.Start();
+            }
+            else if (requestRunning)
+            {
+                Request.Start();
+            }
         }
     }
 }

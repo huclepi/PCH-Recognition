@@ -31,8 +31,10 @@ namespace Jarvis.Model
         /// </summary>
         public override void SpeechRejected(object sender, SpeechRecognitionRejectedEventArgs e)
         {
+            //this.EarManager.StopRequestEar();
+            //Voice.Speak("Pouvez-vous répéter ?");
             PackageHost.WriteInfo("Jarvis n'a pas reconnu votre demande.");
-            Restart();
+            //this.EarManager.StartRequestEar();
         }
 
         public override Grammar GetGrammar()
@@ -47,6 +49,7 @@ namespace Jarvis.Model
         /// </summary>
         public override void SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
+            this.EarManager.StopRequestEar();
             PackageHost.CreateScope(MessageScope.ScopeType.Groups, "JackySpeech").Proxy.SpeechReceive(new
             {
                 Text = e.Result.Text,
