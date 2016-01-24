@@ -49,7 +49,7 @@ namespace Jarvis.Model
         public override void SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
             this.EarManager.StopJarvisEar();
-            if (e.Result.Semantics["data_type"].Value.ToString().Equals("Jarvis") || e.Result.Semantics["data_type"].Value.ToString().Equals("a dit"))
+            if ((e.Result.Semantics["data_type"].Value.ToString().Equals("Jarvis") || e.Result.Semantics["data_type"].Value.ToString().Equals("a dit")) && e.Result.Confidence >= 0.6)
             {
                 Voice.Speak(String.Format("Oui {0} ?", Model.JarvisSettings.User));
                 EarManager.StartRequestEar();
