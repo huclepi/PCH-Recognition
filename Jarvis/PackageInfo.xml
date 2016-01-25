@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Package xmlns="urn:Constellation.Deployment"
          Name="Jarvis"
-         Version="3.0"
+         Version="1.2"
          Author="Huclepi"
          URL="http://www.mywebsite.com"
          Description="Jarvis Copyright ©  2016"

@@ -50,7 +50,7 @@ namespace Jarvis.Model
         public override void SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
             this.EarManager.StopRequestEar();
-            PackageHost.CreateScope(MessageScope.ScopeType.Groups, "JackySpeech").Proxy.SpeechReceive(new
+            PackageHost.CreateScope(MessageScope.ScopeType.Groups, "JarvisSpeech").Proxy.SpeechReceive(new
             {
                 Text = e.Result.Text,
                 Confidence = e.Result.Confidence,
