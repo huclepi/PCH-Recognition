@@ -50,14 +50,17 @@ namespace Jarvis.Model
         public override void SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
             this.EarManager.StopRequestEar();
-            PackageHost.CreateScope(MessageScope.ScopeType.Groups, "JarvisSpeech").Proxy.SpeechReceive(new
-            {
-                Text = e.Result.Text,
-                Confidence = e.Result.Confidence,
-                SemanticValue = e.Result.Semantics.Count > 0 ? e.Result.Semantics.ToDictionary(sv => sv.Key, sv => sv.Value.Value) : new Dictionary<string, object>() { { "RootKey", (object)e.Result.Semantics.Value.ToString() } },
-                Words = e.Result.Words.Select(w => w.Text).ToList()
-            });
 
+            if (e.Result.Confidence >= 0.7)
+            {
+                PackageHost.CreateScope(MessageScope.ScopeType.Groups, "JarvisSpeech").Proxy.SpeechReceive(new
+                {
+                    Text = e.Result.Text,
+                    Confidence = e.Result.Confidence,
+                    SemanticValue = e.Result.Semantics.Count > 0 ? e.Result.Semantics.ToDictionary(sv => sv.Key, sv => sv.Value.Value) : new Dictionary<string, object>() { { "RootKey", (object)e.Result.Semantics.Value.ToString() } },
+                    Words = e.Result.Words.Select(w => w.Text).ToList()
+                });                
+            }
             EarManager.StartJarvisEar();
         }
     }
