@@ -19,7 +19,7 @@ namespace Jarvis.Model
         }
 
         /// <summary>
-        /// Méthode utilisée lorsque la reconnaissance vocale pour Jarvis est en cours
+        /// Called when a speech is in the process.
         /// </summary>
         public override void SpeechHypothesized(object sender, SpeechHypothesizedEventArgs e)
         {
@@ -27,14 +27,17 @@ namespace Jarvis.Model
         }
 
         /// <summary>
-        /// Méthode utilisée lorsque la reconnaissance vocale pour Jarvis a échoué
+        /// Called when a speech is rejected.
         /// </summary>
         public override void SpeechRejected(object sender, SpeechRecognitionRejectedEventArgs e)
         {
             PackageHost.WriteInfo("Relancement de Jarvis.");
-            //EarManager.RestartJarvisEar();
         }
 
+        /// <summary>
+        /// Load the grammar from the JarvisSettings.
+        /// </summary>
+        /// <returns>Grammar</returns>
         public override Grammar GetGrammar()
         {
             using (MemoryStream memStream = new MemoryStream(Jarvis.Properties.Resources.jarvis))
@@ -44,7 +47,7 @@ namespace Jarvis.Model
         }
 
         /// <summary>
-        /// Méthode utilisée lorsque la reconnaissance vocale pour Jarvis est réussi
+        /// Called when a speech is recognized.
         /// </summary>
         public override void SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {

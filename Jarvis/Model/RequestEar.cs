@@ -10,16 +10,22 @@ using System.Threading.Tasks;
 
 namespace Jarvis.Model
 {
+    /// <summary>
+    /// Handle the Request RecognitionEngine.
+    /// </summary>
     public class RequestEar : Ear
     {
-
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="earManager">Ear manager</param>
         public RequestEar(EarManager earManager)
             : base(earManager)
         {
         }
 
         /// <summary>
-        /// Méthode utilisée lorsque la reconnaissance vocale  est en cours
+        /// Called when a speech is in the process.
         /// </summary>
         public override void SpeechHypothesized(object sender, SpeechHypothesizedEventArgs e)
         {
@@ -27,7 +33,7 @@ namespace Jarvis.Model
         }
 
         /// <summary>
-        /// Méthode utilisée lorsque la reconnaissance vocale a échoué
+        /// Called when a speech is rejected.
         /// </summary>
         public override void SpeechRejected(object sender, SpeechRecognitionRejectedEventArgs e)
         {
@@ -37,15 +43,18 @@ namespace Jarvis.Model
             this.EarManager.StartJarvisEar();
         }
 
+        /// <summary>
+        /// Load the grammar from the JarvisSettings.
+        /// </summary>
+        /// <returns>Grammar</returns>
         public override Grammar GetGrammar()
         {
-            //Création d'un document de la norme SRGS à partir du fichier grxml
             SrgsDocument xmlGrammar = new SrgsDocument(JarvisSettings.GrammarFile);
             return new Grammar(xmlGrammar);
         }
 
         /// <summary>
-        /// Méthode utilisée lorsque la reconnaissance vocale est réussi
+        /// Called when a speech is recognized.
         /// </summary>
         public override void SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {

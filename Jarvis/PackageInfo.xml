@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Package xmlns="urn:Constellation.Deployment"
          Name="Jarvis"
-         Version="1.2"
+         Version="1.0"
          Author="Huclepi"
-         URL="http://www.mywebsite.com"
+         URL="https://github.com/huclepi"
          Description="Jarvis Copyright ©  2016"
          EnableControlHub="true">
   <Compatibility constellationVersion="1.7" dotNetTargetPlatform="net45" />

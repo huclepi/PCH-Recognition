@@ -21,6 +21,9 @@ namespace Jarvis
             PackageHost.Start<Program>(args);
         }
 
+        /// <summary>
+        /// Start function.
+        /// </summary>
         public override void OnStart()
         {
             if (!PackageHost.HasControlManager)
@@ -33,6 +36,10 @@ namespace Jarvis
             manager = new EarManager();
         }
 
+        /// <summary>
+        /// Allow to use the SpeechSynthesizer of the Jarvis package.
+        /// </summary>
+        /// <param name="text">The text which will be use by the SpeechSynthesizer.</param>
         [MessageCallback]
         public void Speak(string text)
         {
@@ -41,17 +48,14 @@ namespace Jarvis
             manager.Resume();
         }
 
+        /// <summary>
+        /// Enable or disable the recognition engine.
+        /// </summary>
+        /// <param name="enable">Status of the recognition.</param>
         [MessageCallback]
         public void EnableRecognition(bool enable)
         {
             manager.EnableRecognition(enable);
         }
-
-        /*[MessageCallback]
-        public void Speak(string text, bool writeOnConsole = true, bool notify = false)
-        {
-            Voice.Speak(text, writeOnConsole, notify);
-        }*/
-
     }
 }

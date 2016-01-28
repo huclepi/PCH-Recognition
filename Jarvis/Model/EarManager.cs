@@ -7,16 +7,39 @@ using System.Threading.Tasks;
 
 namespace Jarvis.Model
 {
+    /// <summary>
+    /// Handler of Jarvis.
+    /// </summary>
     public class EarManager
     {
+        /// <summary>
+        /// Jarvis RecognitionEngine
+        /// </summary>
         public JarvisEar Jarvis { get; set; }
+
+        /// <summary>
+        /// Request RecognitionEngine : Handle the grammar file.
+        /// </summary>
         public RequestEar Request { get; set; }
 
+        /// <summary>
+        /// Status of Jarvis RecognitionEngine.
+        /// </summary>
         private bool jarvisRunning = false;
+
+        /// <summary>
+        /// Status of Request RecognitionEngine.
+        /// </summary>
         private bool requestRunning = false;
 
+        /// <summary>
+        /// Status of Jarvis.
+        /// </summary>
         private bool isEnable = true;
 
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public EarManager()
         {
             Jarvis = new JarvisEar(this);
@@ -24,6 +47,9 @@ namespace Jarvis.Model
             StartJarvisEar();
         }
 
+        /// <summary>
+        /// Start Jarvis RecognitionEngine.
+        /// </summary>
         public void StartJarvisEar()
         {
             if (isEnable)
@@ -33,6 +59,9 @@ namespace Jarvis.Model
             }
         }
 
+        /// <summary>
+        /// Restart Jarvis RecognitionEngine.
+        /// </summary>
         public void RestartJarvisEar()
         {
             if (isEnable)
@@ -42,6 +71,9 @@ namespace Jarvis.Model
             }
         }
 
+        /// <summary>
+        /// Start Request RecognitionEngine.
+        /// </summary>
         public void StartRequestEar()
         {
             if (isEnable)
@@ -51,16 +83,25 @@ namespace Jarvis.Model
             }
         }
 
+        /// <summary>
+        /// Stop Jarvis RecognitionEngine.
+        /// </summary>
         public void StopJarvisEar()
         {
             Jarvis.Stop();
         }
 
+        /// <summary>
+        /// Stop Request RecognitionEngine.
+        /// </summary>
         public void StopRequestEar()
         {
             Request.Stop();
         }
 
+        /// <summary>
+        /// Pause both RecognitionEngines.
+        /// </summary>
         public void Pause()
         {
             jarvisRunning = Jarvis.IsRunning;
@@ -76,6 +117,9 @@ namespace Jarvis.Model
             
         }
 
+        /// <summary>
+        /// Resume
+        /// </summary>
         public void Resume()
         {
             if (isEnable && jarvisRunning)
@@ -88,17 +132,27 @@ namespace Jarvis.Model
             }
         }
 
+        /// <summary>
+        /// Stop both RecognitionEngines.
+        /// </summary>
         private void StopAll()
         {
             StopJarvisEar();
             StopRequestEar();
         }
 
+        /// <summary>
+        /// Restart both RecognitionEngines.
+        /// </summary>
         private void RestartAll()
         {
             StartJarvisEar();
         }
 
+        /// <summary>
+        /// Enable or disable the RecognitionEngine.
+        /// </summary>
+        /// <param name="enable">Future status of the RecognitionEngine</param>
         public void EnableRecognition(bool enable)
         {
             isEnable = enable;
