@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Constellation.Host;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,8 +12,10 @@ namespace Jarvis.Model
         public JarvisEar Jarvis { get; set; }
         public RequestEar Request { get; set; }
 
-        bool jarvisRunning = false;
-        bool requestRunning = false;
+        private bool jarvisRunning = false;
+        private bool requestRunning = false;
+
+        private bool isEnable = true;
 
         public EarManager()
         {
@@ -23,20 +26,29 @@ namespace Jarvis.Model
 
         public void StartJarvisEar()
         {
-            Request.Stop();
-            Jarvis.Start();
+            if (isEnable)
+            {
+                Request.Stop();
+                Jarvis.Start();
+            }
         }
 
         public void RestartJarvisEar()
         {
-            Request.Stop();
-            Jarvis.Restart();
+            if (isEnable)
+            {
+                Request.Stop();
+                Jarvis.Restart();
+            }
         }
 
         public void StartRequestEar()
         {
-            Jarvis.Stop();
-            Request.Start();
+            if (isEnable)
+            {
+                Jarvis.Stop();
+                Request.Start();
+            }
         }
 
         public void StopJarvisEar()
@@ -49,7 +61,7 @@ namespace Jarvis.Model
             Request.Stop();
         }
 
-        internal void Pause()
+        public void Pause()
         {
             jarvisRunning = Jarvis.IsRunning;
             requestRunning = Request.IsRunning;
@@ -64,16 +76,43 @@ namespace Jarvis.Model
             
         }
 
-        internal void Resume()
+        public void Resume()
         {
-            if (jarvisRunning)
+            if (isEnable && jarvisRunning)
             {
                 Jarvis.Start();
             }
-            else if (requestRunning)
+            else if (isEnable && requestRunning)
             {
                 Request.Start();
             }
+        }
+
+        private void StopAll()
+        {
+            StopJarvisEar();
+            StopRequestEar();
+        }
+
+        private void RestartAll()
+        {
+            StartJarvisEar();
+        }
+
+        public void EnableRecognition(bool enable)
+        {
+            isEnable = enable;
+            if (enable)
+            {
+                PackageHost.WriteInfo("Restarting Jarvis...");
+                RestartAll();
+            }
+            else
+            {
+                PackageHost.WriteInfo("Stopping Jarvis...");
+                StopAll();
+            }
+            
         }
     }
 }

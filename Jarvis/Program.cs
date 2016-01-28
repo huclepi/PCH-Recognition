@@ -41,6 +41,12 @@ namespace Jarvis
             manager.Resume();
         }
 
+        [MessageCallback]
+        public void EnableRecognition(bool enable)
+        {
+            manager.EnableRecognition(enable);
+        }
+
         /*[MessageCallback]
         public void Speak(string text, bool writeOnConsole = true, bool notify = false)
         {
